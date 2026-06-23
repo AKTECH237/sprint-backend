@@ -15,6 +15,9 @@ public class Transaction {
     private String type;
     private BigDecimal montant;
     private LocalDateTime dateTransaction;
+    private String referenceOperation;
+    private BigDecimal soldeAvant;
+    private BigDecimal soldeApres;
     private String description;
 
     @Enumerated(EnumType.STRING)
@@ -42,6 +45,15 @@ public class Transaction {
 
     public BigDecimal getMontant() { return montant; }
     public void setMontant(BigDecimal montant) { this.montant = montant; }
+
+    public String getReferenceOperation() { return referenceOperation; }
+    public void setReferenceOperation(String referenceOperation) { this.referenceOperation = referenceOperation; }
+
+    public BigDecimal getSoldeAvant() { return soldeAvant; }
+    public void setSoldeAvant(BigDecimal soldeAvant) { this.soldeAvant = soldeAvant; }
+
+    public BigDecimal getSoldeApres() { return soldeApres; }
+    public void setSoldeApres(BigDecimal soldeApres) { this.soldeApres = soldeApres; }
 
     public LocalDateTime getDateTransaction() { return dateTransaction; }
     public void setDateTransaction(LocalDateTime dateTransaction) { this.dateTransaction = dateTransaction; }
