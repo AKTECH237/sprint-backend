@@ -17,6 +17,8 @@ public class Transaction {
     @Enumerated(EnumType.STRING)
     private TypeOperation typeOperation;
 
+    private java.math.BigDecimal fraisOperation;
+    private String motif;
     private BigDecimal montant;
     private BigDecimal soldeAvant;
     private BigDecimal soldeApres;
@@ -67,6 +69,12 @@ public class Transaction {
     public void setTypeOperation(TypeOperation typeOperation) {
         this.typeOperation = typeOperation;
     }
+
+    public BigDecimal getFraisOperation() { return fraisOperation; }
+    public void setFraisOperation(BigDecimal fraisOperation) { this.fraisOperation = fraisOperation; }
+
+    public String getMotif() { return motif; }
+    public void setMotif(String motif) { this.motif = motif; }
 
     public BigDecimal getMontant() {
         return montant;

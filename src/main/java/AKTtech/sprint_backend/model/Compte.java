@@ -14,6 +14,14 @@ public class Compte {
     private String id;
     private String numeroCompte;
 
+    private String iban;
+    private String rib;
+    private java.math.BigDecimal soldeComptable;
+    private java.math.BigDecimal plafondRetraitJournalier;
+    private java.math.BigDecimal plafondVirementJournalier;
+    private LocalDateTime dateDerniereOperation;
+    private LocalDateTime dateDerniereModification;
+
     @Enumerated(EnumType.STRING)
     @NotNull(message = "Le type de compte est obligatoire")
     private TypeCompte typeCompte;
@@ -58,6 +66,62 @@ public class Compte {
 
     public void setNumeroCompte(String numeroCompte) {
         this.numeroCompte = numeroCompte;
+    }
+
+    public String getIban() {
+        return iban;
+    }
+
+    public void setIban(String iban) {
+        this.iban = iban;
+    }
+
+    public String getRib() {
+        return rib;
+    }
+
+    public void setRib(String rib) {
+        this.rib = rib;
+    }
+
+    public BigDecimal getSoldeComptable() {
+        return soldeComptable;
+    }
+
+    public void setSoldeComptable(BigDecimal soldeComptable) {
+        this.soldeComptable = soldeComptable;
+    }
+
+    public BigDecimal getPlafondRetraitJournalier() {
+        return plafondRetraitJournalier;
+    }
+
+    public void setPlafondRetraitJournalier(BigDecimal plafondRetraitJournalier) {
+        this.plafondRetraitJournalier = plafondRetraitJournalier;
+    }
+
+    public BigDecimal getPlafondVirementJournalier() {
+        return plafondVirementJournalier;
+    }
+
+    public void setPlafondVirementJournalier(BigDecimal plafondVirementJournalier) {
+        this.plafondVirementJournalier = plafondVirementJournalier;
+    }
+
+    public LocalDateTime getDateDerniereOperation() {
+        return dateDerniereOperation;
+    }
+
+    public void setDateDerniereOperation(LocalDateTime dateDerniereOperation) {
+        this.dateDerniereOperation = dateDerniereOperation;
+    }
+
+    public LocalDateTime getDateDerniereModification() {
+        return dateDerniereModification;
+    }
+
+    public void setDateDerniereModification(LocalDateTime dateDerniereModification) {
+        this.dateDerniereModification = dateDerniereModification;
     }
 
     public TypeCompte getTypeCompte() {
