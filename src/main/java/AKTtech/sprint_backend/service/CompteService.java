@@ -5,6 +5,9 @@ import AKTtech.sprint_backend.repository.CompteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,6 +32,11 @@ public class CompteService {
         String numero = String.format("CMR-%s-%06d", annee, nombreComptes + 1);
         compte.setNumeroCompte(numero);
         return compteRepository.save(compte);
+    }
+    public BigDecimal getSoldeByCompteId(String id) {
+        Compte compte = compteRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Compte non trouvé"));
+        return compte.getSolde();
     }
 
     public Compte updateCompte(String id, Compte compteModifie){

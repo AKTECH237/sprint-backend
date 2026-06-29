@@ -4,9 +4,11 @@ import AKTtech.sprint_backend.model.Compte;
 import AKTtech.sprint_backend.service.CompteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import java.util.HashMap;
+import java.util.Map;
 import java.util.List;
 import java.util.Optional;
+import java.math.BigDecimal;
 
 @RestController
 @RequestMapping("/api/comptes")
@@ -45,6 +47,15 @@ public class CompteController {
     @DeleteMapping("/{id}")
     public void deleteCompte(@PathVariable String id){
        compteService.deleteCompte(id);
+    }
+    @GetMapping("/{id}/solde")
+    public Map<String, Object> getSolde(@PathVariable String id) {
+        BigDecimal solde = compteService.getSoldeByCompteId(id);
+        Map<String, Object> response = new HashMap<>();
+        response.put("compteId", id);
+        response.put("solde", solde);
+        response.put("message", "Votre solde est de " + solde + " XAF");
+        return response;
     }
 }
 
